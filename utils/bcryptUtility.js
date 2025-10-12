@@ -1,32 +1,32 @@
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 
 const bcryptCompare = (hashedPassword, password) =>
   new Promise((resolve, reject) => {
     bcrypt.compare(password, hashedPassword, (err, res) => {
       if (err) {
-        reject(err)
+        reject(err);
       } else {
-        resolve(res)
+        resolve(res);
       }
-    })
-  })
+    });
+  });
 
-const hashPassword = async (password) => {
+const hashPassword = async password => {
   if (!password) {
-    return false
+    return false;
   }
-  const hashedPassword = await bcrypt.hash(password, 10)
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-  return hashedPassword
-}
+  return hashedPassword;
+};
 
 const comparePassword = async (password, hashedPassword) => {
   if (!password) {
-    return false
+    return false;
   }
-  const isMatch = await bcryptCompare(hashedPassword, password)
+  const isMatch = await bcryptCompare(hashedPassword, password);
 
-  return isMatch
-}
+  return isMatch;
+};
 
-export { hashPassword, comparePassword }
+export { hashPassword, comparePassword };

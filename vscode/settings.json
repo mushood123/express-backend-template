@@ -1,0 +1,87 @@
+{
+  // === FORMATTING SETTINGS ===
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSaveMode": "file",
+
+  // === PRETTIER SETTINGS ===
+  "prettier.requireConfig": true,
+  "prettier.useEditorConfig": true,
+  "prettier.configPath": ".prettierrc",
+  "prettier.ignorePath": ".prettierignore",
+
+  // === ESLINT SETTINGS ===
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.workingDirectories": ["."],
+  "eslint.format.enable": false,
+  "eslint.lintTask.enable": true,
+  "eslint.run": "onType",
+  "eslint.autoFixOnSave": false,
+  "eslint.options": {
+    "extensions": [".js", ".mjs", ".cjs"]
+  },
+
+  // === DEFAULT FORMATTER ===
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // === EDITOR SETTINGS ===
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.rulers": [120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editorconfig.enable": true,
+
+  // === SEMICOLON ENFORCEMENT ===
+  "editor.suggest.insertMode": "replace",
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "javascript.preferences.includePackageJsonAutoImports": "auto",
+
+  // === FILE ASSOCIATIONS ===
+  "files.associations": {
+    "*.js": "javascript"
+  },
+
+  // === WORKSPACE SETTINGS ===
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/.git": true,
+    "**/prisma/migrations": true
+  },
+
+  // === TERMINAL SETTINGS ===
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.cwd": "${workspaceFolder}",
+
+  // === EXTENSIONS RECOMMENDATIONS ===
+  "extensions.recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "ms-vscode.vscode-json"
+  ]
+}

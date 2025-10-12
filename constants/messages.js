@@ -21,5 +21,5 @@ export const MESSAGES = {
   REGISTER_SUCCESS: 'Registration Successful',
   EMAIL_SENT: 'Email Sent Successfully',
   PASSWORD_RESET: 'Password Reset Successfully',
-  HEALTH_CHECK: 'API is running smoothly!'
-}
+  HEALTH_CHECK: 'API is running smoothly!',
+};

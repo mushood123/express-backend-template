@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  otps      OTP[]
+}
+
+model OTP {
+  id        String     @id @default(uuid())
+  code      String
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  purpose   OtpPurpose
+  createdAt DateTime   @default(now())
+  isExpired Boolean    @default(false)
+  isUsed    Boolean    @default(false)
+  attempts  Int        @default(0)
+  verified  Boolean    @default(false)
+}
+
+enum OtpPurpose {
+  FORGOT_PASSWORD
+  RESEND_OTP
+}
