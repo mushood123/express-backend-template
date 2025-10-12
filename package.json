@@ -1,5 +1,5 @@
 {
-  "name": "business-pro",
+  "name": "express-backend-template",
   "version": "0.0.0",
   "private": true,
   "description": "Business Pro is a Node.js application that serves as a backend for business-related functionalities.",
