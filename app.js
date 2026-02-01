@@ -1,9 +1,11 @@
 import express from 'express';
 import { PORT, API_VERSION, PREFIX } from './config/env.js';
 import { routes } from './routes/index.js';
+import { requestLogger } from './middlewares/index.js';
 
 const app = express();
 app.use(express.json());
+app.use(requestLogger()); // detailed request/response logger (redacts sensitive fields)
 
 routes(PREFIX, API_VERSION, app);
 
