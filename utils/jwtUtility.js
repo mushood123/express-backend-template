@@ -1,17 +1,23 @@
 import jwt from 'jsonwebtoken';
-
+import { JWT_ALGORITHM, JWT_EXPIRES_IN, JWT_SECRET } from '../config/env.js';
 class JwtUtility {
   static generateToken(payload, secretKey, options = {}) {
-    const defaultOptions = { expiresIn: '1h', ...options };
+    const defaultOptions = {
+      expiresIn: JWT_EXPIRES_IN,
+      algorithm: JWT_ALGORITHM,
+      ...options,
+    };
 
     return jwt.sign(payload, secretKey, defaultOptions);
   }
 
-  static verifyToken(token, secretKey) {
+  static verifyToken(token) {
     try {
-      return jwt.verify(token, secretKey);
-    } catch (error) {
-      throw new Error('Invalid or expired token', error);
+      return jwt.verify(token, JWT_SECRET, {
+        algorithms: [JWT_ALGORITHM],
+      });
+    } catch {
+      throw new Error('Token verification failed');
     }
   }
 

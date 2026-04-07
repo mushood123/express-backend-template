@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import { SALT_ROUNDS } from '../config/env.js';
 
 const bcryptCompare = (hashedPassword, password) =>
   new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ const hashPassword = async password => {
   if (!password) {
     return false;
   }
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
   return hashedPassword;
 };
@@ -29,4 +30,4 @@ const comparePassword = async (password, hashedPassword) => {
   return isMatch;
 };
 
-export { hashPassword, comparePassword };
+export { comparePassword, hashPassword };
